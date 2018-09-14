@@ -1,7 +1,6 @@
 package gov.dvla.osg.scheduleCheck;
 
-import static gov.dvla.osg.scheduleCheck.XMLUtils.createXml;
-import static gov.dvla.osg.scheduleCheck.XMLUtils.unMarshallXml;
+import static gov.dvla.osg.scheduleCheck.XMLUtils.*;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -96,7 +95,7 @@ public class Start {
 		for (ExpectedFile efs : expectedFiles) {
 			if (!efs.isResolved()) {
 				efs.print();
-				String subjectLine = "Schedule Check - unresolved file";
+				String subjectLine = "Schedule Check - unresolved file " + efs.getPath();
 				String msg = nextRunDate.toString(logFmt)
 						+ ":00 : "
 						+ "/ipwdata/resources/applications/process/ScheduleCheck.ksh"
